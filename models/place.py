@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""class that inherit from BaseModel"""
+"""place_id: string - empty string: it will be the Place.id"""
 
 from models.base_model import BaseModel
 
