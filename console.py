@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-""""""
+"""contains the entry point of the command interpreter"""
 
 import cmd
 import sys
@@ -43,7 +43,6 @@ class HBNBCommand(cmd.Cmd):
     class_list = ["BaseModel", "User", "Amenity", "City",
                   "Place", "Review", "State"]
 
-
     def do_quit(self, line):
         """Quit command to exit the program"""
         return True
@@ -57,19 +56,20 @@ class HBNBCommand(cmd.Cmd):
         pass
 
     def do_create(self, line):
-        """"""
+        """Creates a new instance of BaseModel, saves it
+        (to the JSON file) and prints the id. Ex: $ create BaseModel"""
         if not line:
             print("** class name missing **")
         elif line not in self.class_list:
             print("** class doesn't exist **")
         else:
             line = eval(line)()
-            #models.storage.save()
             line.save()
             print(line.id)
 
     def do_show(self, line):
-        """"""
+        """Prints the string representation of an instance based on
+        the class name and id. Ex: $ show BaseModel 1234-1234-1234."""
         i = line.split()
         if not line:
             print("** class name missing **")
@@ -88,7 +88,9 @@ class HBNBCommand(cmd.Cmd):
             print(data[key])
 
     def do_destroy(self, line):
-        """"""
+        """Deletes an instance based on the class name and id
+        (save the change into the JSON file). Ex: $ destroy
+        BaseModel 1234-1234-1234"""
         i = line.split()
         if not line:
             print("** class name missing **")
@@ -107,8 +109,10 @@ class HBNBCommand(cmd.Cmd):
             del storage.all()[key]
             storage.save()
             return
+
     def do_all(self, line):
-        """"""
+        """Prints all string representation of all instances
+        based or not on the class name. Ex: $ all BaseModel or $ all"""
         i = line.split()
         list_obj = []
         data = storage.all()
@@ -125,6 +129,10 @@ class HBNBCommand(cmd.Cmd):
             print(list_obj)
 
     def do_update(self, line):
+        """Updates an instance based on the class name and id by
+        adding or updating attribute (save the change into the JSON file).
+        Ex: $ update BaseModel 1234-1234-1234
+        email "aibnb@holbertonschool.com" """
         i = shlex.split(line)
         if not line:
             print("** class name missing **")
