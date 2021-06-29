@@ -10,11 +10,12 @@ class User(BaseModel):
     password: string - empty string
     first_name: string - empty string
     last_name: string - empty string"""
+    
     email = ""
     password = ""
     first_name = ""
     last_name = ""
 
-    def __init__(self, *args, **kwargs):
-        """Attributes"""
-        super().__init__(*args, **kwargs)
+    #def __init__(self, *args, **kwargs):
+     #   """Attributes"""
+      #  super().__init__(*args, **kwargs)
