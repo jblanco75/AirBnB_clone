@@ -12,7 +12,7 @@ class User(BaseModel):
     last_name: string - empty string"""
     def __init__(self, *args, **kwargs):
         """Attributes"""
-        super().__init__(*args,**kwargs)
+        super().__init__(*args, **kwargs)
         self.email = ""
         self.password = ""
         self.first_name = ""
