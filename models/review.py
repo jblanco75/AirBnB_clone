@@ -9,9 +9,11 @@ class Review(BaseModel):
     place_id: string - empty string
     user_id: string - empty string
     text: string - empty string"""
+
+    place_id = ""
+    user_id = ""
+    text = ""
+
     def __init__(self, *args, **kwargs):
         """Constructor"""
         super().__init__(*args, **kwargs)
-        self.place_id = ""
-        self.user_id = ""
-        self.text = ""
