@@ -16,6 +16,8 @@ from models.review import Review
 
 
 class HBNBCommand(cmd.Cmd):
+    """HBNBNCommand interpreter implementation"""
+
     intro = """
 
           .-===-
