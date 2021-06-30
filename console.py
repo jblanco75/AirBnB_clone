@@ -52,7 +52,8 @@ class HBNBCommand(cmd.Cmd):
         return True
 
     def emptyline(self):
-        """Ignores empty spaces"""
+        """method to bypass empty line entered and not execute prev.
+        command."""
         pass
 
     def do_create(self, line):
@@ -130,9 +131,7 @@ class HBNBCommand(cmd.Cmd):
 
     def do_update(self, line):
         """Updates an instance based on the class name and id by
-        adding or updating attribute (save the change into the JSON file).
-        Ex: $ update BaseModel 1234-1234-1234
-        email "aibnb@holbertonschool.com" """
+        adding or updating attribute."""
         i = shlex.split(line)
         if not line:
             print("** class name missing **")
