@@ -7,8 +7,10 @@ Unittest for base_model
 import unittest
 from models.base_model import BaseModel
 import os
-
+import pep8
 """ test class """
+
+
 def setUp():
     """ setup function
     """
@@ -41,6 +43,9 @@ class Test_BaseModel(unittest.TestCase):
         self.assertEqual(type(b1).__name__, "BaseModel")
         self.assertTrue(hasattr(b1, "name"))
         self.assertTrue(hasattr(b1, "__class__"))
+        self.assertFalse(hasattr(b1, "id"))
+        self.assertFalse(hasattr(b1, "created_at"))
+        self.assertFalse(hasattr(b1, "updated_at"))
 
     def test_str_method(self):
         """Tests to see if the method is printing accurately"""
@@ -68,6 +73,8 @@ class Test_BaseModel(unittest.TestCase):
         test_dict = my_model.to_dict()
         self.assertIsInstance(my_model, BaseModel)
         self.assertEqual(type(my_model).__name__, "BaseModel")
+        # self.assertEqual(test_dict['__class__'], "BaseModel")
+        # self.assertTrue(type(test_dict['__class__']), 'str')
         self.assertTrue(type(test_dict['created_at']), 'str')
         self.assertTrue(type(test_dict['updated_at']), 'str')
         self.assertTrue(type(test_dict['id']), 'str')

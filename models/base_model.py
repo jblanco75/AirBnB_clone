@@ -8,19 +8,9 @@ import models
 
 
 class BaseModel():
-    """Public instance attributes:
-    id: string - assign with an uuid when an instance
-    is created:
-    you can use uuid.uuid4() to generate unique id but
-    don’t forget to convert to a string
-    the goal is to have unique id for each BaseModel
-    created_at: datetime - assign with the current datetime
-    when an instance is created
-    updated_at: datetime - assign with the current datetime
-    when an instance is created and it will be updated every
-    time you change your object"""
+    """Commom definition for all models (attributes/methods)""x"
     def __init__(self, *args, **kwargs):
-        """Constructor"""
+        """Initialization method which defines attributtes"""
         if kwargs:
             for key, value in kwargs.items():
                 if key in ["created_at", "updated_at"]:
@@ -33,7 +23,7 @@ class BaseModel():
             models.storage.new(self)
 
     def __str__(self):
-        """print method"""
+        """String respresentation of the BaseModel class"""
         return ("[{}] ({}) {}").format(self.__class__.__name__,
                                        self.id, self.__dict__)
 

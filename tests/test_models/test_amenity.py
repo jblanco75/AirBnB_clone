@@ -5,7 +5,10 @@ Unittest for amenity
 
 
 from models.amenity import Amenity
-import os
+from models.base_model import BaseModel
+import pep8
+import json
+import datetime
 import unittest
 
 
@@ -21,6 +24,13 @@ class Test_Amenity(unittest.TestCase):
         self.assertTrue(len(Amenity.__str__.__doc__) > 1)
         self.assertTrue(len(Amenity.save.__doc__) > 1)
         self.assertTrue(len(Amenity.to_dict.__doc__) > 1)
+
+    def test_pep8(self):
+        """test pep8 comes back clean"""
+        style = pep8.StyleGuide(quiet=True)
+        result = style.check_files(['models/amenity.py'])
+        self.assertEqual(result.total_errors, 0, "fix pep8")
+
 
     def setUp(self):
         """
@@ -47,7 +57,10 @@ class Test_Amenity(unittest.TestCase):
         """Pass kwargs into the instance"""
         b1 = Amenity(name="AC")
         self.assertEqual(type(b1).__name__, "Amenity")
-        self.assertTrue(hasattr(b1, "name"))
+        self.assertFalse(hasattr(b1, "name"))
+        self.assertFalse(hasattr(b1, "id"))
+        self.assertFalse(hasattr(b1, "created_at"))
+        self.assertFalse(hasattr(b1, "updated_at"))
         self.assertTrue(hasattr(b1, "__class__"))
 
     def test_str_method(self):
