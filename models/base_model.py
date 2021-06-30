@@ -8,7 +8,7 @@ import models
 
 
 class BaseModel():
-    """Commom definition for all models (attributes/methods)""x"
+    """Commom definition for all models (attributes/methods)"""
     def __init__(self, *args, **kwargs):
         """Initialization method which defines attributtes"""
         if kwargs:
