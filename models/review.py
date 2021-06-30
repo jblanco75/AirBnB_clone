@@ -15,5 +15,5 @@ class Review(BaseModel):
     text = ""
 
     def __init__(self, *args, **kwargs):
-        """Constructor"""
+        """Commom definition for all models"""
         super().__init__(*args, **kwargs)

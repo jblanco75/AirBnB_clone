@@ -5,18 +5,7 @@ from models.base_model import BaseModel
 
 
 class Place(BaseModel):
-    """Public class attributes:
-    city_id: string - empty string:
-    user_id: string - empty string:
-    name: string - empty string
-    description: string - empty string
-    number_rooms: integer - 0
-    number_bathrooms: integer - 0
-    max_guest: integer - 0
-    price_by_night: integer - 0
-    latitude: float - 0.0
-    longitude: float - 0.0
-    amenity_ids: list of string - empty list"""
+    """Public class creation"""
 
     city_id = ""
     user_id = ""
@@ -31,5 +20,5 @@ class Place(BaseModel):
     amenity_ids = []
 
     def __init__(self, *args, **kwargs):
-        """"""
+        """ Commom definition for all models """
         super().__init__(*args, **kwargs)
