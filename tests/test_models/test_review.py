@@ -1,89 +1,25 @@
-#!/usr/bin/python3
-"""
-Unittest for place
-"""
+#!/bin/usr/pyhton3
+"""Test Review"""
 
-
-from models.review import Review
-import os
 import unittest
+from models.base_model import BaseModel
+from models.review import Review
 
 
-class Test_Review(unittest.TestCase):
-    """
-    Unittest for the class Review
-    """
+class TestReview(unittest.TestCase):
+    """Test review"""
 
-    def test_docstring(self):
-        """Checks for docstring"""
-        self.assertTrue(len(Review.__doc__) > 1)
-        self.assertTrue(len(Review.__init__.__doc__) > 1)
-        self.assertTrue(len(Review.__str__.__doc__) > 1)
-        self.assertTrue(len(Review.save.__doc__) > 1)
-        self.assertTrue(len(Review.to_dict.__doc__) > 1)
-    def setUp(self):
-        """
-        Setup test
-        """
-        pass
+    def test_class(self):
+        """Test class"""
+        self.assertEqual(Review.place_id, "")
+        self.assertEqual(Review.user_id, "")
+        self.assertEqual(Review.text, "")
+        self.assertTrue(issubclass(Review, BaseModel))
 
-    def tearDown(self):
-        """
-        Resets tests
-        """
-        try:
-            os.remove("file.json")
-        except:
-            pass
-
-    def test_init_arg(self):
-        """pass in arg to new instance"""
-        b1 = Review(23)
-        self.assertEqual(type(b1).__name__, "Review")
-        self.assertFalse(hasattr(b1, "23"))
-
-    def test_init_kwarg(self):
-        """Pass kwargs into the instance"""
-        b1 = Review(name="Betty")
-        self.assertEqual(type(b1).__name__, "Review")
-        self.assertTrue(hasattr(b1, "name"))
-        self.assertTrue(hasattr(b1, "__class__"))
-
-    def test_str_method(self):
-        """Tests to see if each method is printing accurately"""
-        b1 = Review()
-        b1printed = b1.__str__()
-        self.assertEqual(b1printed,
-                         "[Review] ({}) {}".format(b1.id, b1.__dict__))
-
-    def test_before_todict(self):
-        """Tests instances before using to_dict conversion"""
-        b1 = Review()
-        b1_dict = b1.__dict__
-        self.assertEqual(type(b1).__name__, "Review")
-        self.assertTrue(hasattr(b1, '__class__'))
-        self.assertEqual(str(b1.__class__),
-                         "<class 'models.review.Review'>")
-        self.assertTrue(type(b1_dict['created_at']), 'datetime.datetime')
-        self.assertTrue(type(b1_dict['updated_at']), 'datetime.datetime')
-        self.assertTrue(type(b1_dict['id']), 'str')
-
-    def test_after_todict(self):
-        """Test instances after using to_dict conversion"""
-        my_model = Review()
-        new_model = Review()
-        test_dict = my_model.to_dict()
-        self.assertIsInstance(my_model, Review)
-        self.assertEqual(type(my_model).__name__, "Review")
-        self.assertTrue(type(test_dict['created_at']), 'str')
-        self.assertTrue(type(test_dict['updated_at']), 'str')
-        self.assertTrue(type(test_dict['id']), 'str')
-        self.assertNotEqual(my_model.id, new_model.id)
-
-    def test_hasattribute(self):
-        """Tests if the instance of BaseModel has been correctly made"""
-        b1 = Review()
-        self.assertTrue(hasattr(b1, "__init__"))
-        self.assertTrue(hasattr(b1, "created_at"))
-        self.assertTrue(hasattr(b1, "updated_at"))
-        self.assertTrue(hasattr(b1, "id"))
+    def test_instance(self):
+        """Test instance"""
+        my_review = Review()
+        self.assertEqual(my_review.place_id, "")
+        self.assertEqual(my_review.user_id, "")
+        self.assertEqual(my_review.text, "")
+        self.assertTrue(isinstance(my_review, BaseModel))
