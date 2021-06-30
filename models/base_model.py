@@ -25,9 +25,6 @@ class BaseModel():
             for key, value in kwargs.items():
                 if key in ["created_at", "updated_at"]:
                     value = datetime.strptime(value, "%Y-%m-%dT%H:%M:%S.%f")
-                #elif key == "updated_at":
-                 #   self.updated_at = datetime.strptime(value,
-                  #                                      "%Y-%m-%dT%H:%M:%S.%f")
                 if key not in ["__class__"]:
                     setattr(self, key, value)
         else:
