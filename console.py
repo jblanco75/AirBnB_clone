@@ -2,7 +2,7 @@
 """contains the entry point of the command interpreter"""
 
 import cmd
-import sys
+import json
 import shlex
 
 from models.base_model import BaseModel
