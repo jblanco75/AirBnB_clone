@@ -154,4 +154,4 @@ python3 -m unittest discover tests
 ```
 python3 -m unittest tests/test_models/test_base_model.py
 ```
-> Finished 25 / 06 / 2021
+> Finished 26 / 06 / 2021
