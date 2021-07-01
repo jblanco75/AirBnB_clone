@@ -1,3 +1,4 @@
+![prompt](https://github.com/Rode1o/AirBnB_clone/blob/main/images/E40xXlwWUAYutYy.png)
 ## Background and context
 Introduction
 -----------------------
@@ -24,6 +25,10 @@ The tasks carried out include:
 What’s a command interpreter?
 -----------------------
 The command interpreter is the program that receives what is written in the terminal and converts it into instructions for the operating system. In this case, we create our own command interpreter for the functions that we need for the correct functioning of our Airbnb clone.
+
+Class Diagram
+-----------------------
+![diagram](https://github.com/Rode1o/AirBnB_clone/blob/main/images/UML-HBNB.jpg)
 
 ## 01. Installation instructions:
 [Clone repository](https://github.com/Rode1o/AirBnB_clone)
