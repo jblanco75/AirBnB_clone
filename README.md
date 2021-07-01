@@ -1,4 +1,9 @@
-![prompt](https://github.com/Rode1o/AirBnB_clone/blob/main/images/E40xXlwWUAYutYy.png)
+<div>
+<img align="right" src= "http://orig09.deviantart.net/20bb/f/2015/272/4/6/fire_animation___test___by_silversmicee-d9bdp4u.gif" width="180" height="180"/>
+<img align = "center" src= "https://github.com/Rode1o/AirBnB_clone/blob/main/images/E40xXlwWUAYutYy.png" width="720" height="360"/>
+
+</div>  
+  
 ## Background and context
 Introduction
 -----------------------
